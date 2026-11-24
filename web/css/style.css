@@ -1,0 +1,187 @@
+/* TravelGuardian Luxury Boarding Pass & Transatlantic Stylesheet */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+:root {
+    --color-parchment: #F6F2EA;
+    --color-alabaster: #FCFBF8;
+    --color-ink: #14213D;
+    --color-brass: #B88A3B;
+    --color-brass-hover: #9E742F;
+    --color-slate-border: #E3DACB;
+    --color-muted: #626C7D;
+    --color-crimson: #B6382E;
+    --color-crimson-bg: #FDF2F1;
+    --color-emerald: #1E6B4B;
+    --color-emerald-bg: #F0F7F4;
+    --color-amber: #D97706;
+    
+    --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+body {
+    background-color: var(--color-parchment);
+    color: var(--color-ink);
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Boarding Pass Aesthetic */
+.boarding-pass {
+    background-color: var(--color-alabaster);
+    border: 1px solid var(--color-slate-border);
+    position: relative;
+    box-shadow: 0 4px 24px -2px rgba(20, 33, 61, 0.04);
+    transition: transform 0.2s var(--ease-out-expo), box-shadow 0.2s var(--ease-out-expo), border-color 0.2s ease;
+}
+
+.boarding-pass-cutout::before,
+.boarding-pass-cutout::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: var(--color-parchment);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    pointer-events: none;
+}
+
+.boarding-pass-cutout::before {
+    left: -9px;
+    border-right: 1px solid var(--color-slate-border);
+    box-shadow: inset -1px 0 2px rgba(20, 33, 61, 0.03);
+}
+
+.boarding-pass-cutout::after {
+    right: -9px;
+    border-left: 1px solid var(--color-slate-border);
+    box-shadow: inset 1px 0 2px rgba(20, 33, 61, 0.03);
+}
+
+.perforated-line {
+    border-bottom: 2px dashed var(--color-slate-border);
+}
+
+/* Button & Card Micro-Interactions (Emil Kowalski Design Engineering) */
+button {
+    transition: transform 0.15s var(--ease-out-expo), background-color 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+}
+
+button:active:not(:disabled) {
+    transform: scale(0.97);
+}
+
+.card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px -4px rgba(20, 33, 61, 0.08);
+    border-color: rgba(184, 138, 59, 0.5);
+}
+
+/* Vintage Ink Stamps */
+@keyframes stampIn {
+    0% {
+        transform: scale(2.8) rotate(-16deg);
+        opacity: 0;
+    }
+    65% {
+        transform: scale(0.96) rotate(-6deg);
+        opacity: 0.95;
+    }
+    100% {
+        transform: scale(1) rotate(-8deg);
+        opacity: 0.92;
+    }
+}
+
+.stamp-approved {
+    animation: stampIn 0.4s var(--ease-spring) forwards;
+    border: 3px double var(--color-emerald);
+    color: var(--color-emerald);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-shadow: 0 0 1px rgba(30, 107, 75, 0.3);
+    background: rgba(240, 247, 244, 0.92);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 10px 30px rgba(30, 107, 75, 0.15);
+}
+
+.stamp-declined {
+    animation: stampIn 0.4s var(--ease-spring) forwards;
+    border: 3px double var(--color-crimson);
+    color: var(--color-crimson);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-shadow: 0 0 1px rgba(182, 56, 46, 0.3);
+    background: rgba(253, 242, 241, 0.92);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 10px 30px rgba(182, 56, 46, 0.15);
+}
+
+/* Radar & Danger Pulses */
+@keyframes pulseRing {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.85;
+    }
+    100% {
+        transform: scale(2.5);
+        opacity: 0;
+    }
+}
+
+.pulse-danger {
+    animation: pulseRing 1.8s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+/* Three.js Canvas Container */
+#threeCanvasContainer {
+    width: 100%;
+    height: 240px;
+    position: relative;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    background: radial-gradient(circle at 50% 50%, #FCFBF8 0%, #F6F2EA 100%);
+    cursor: grab;
+}
+
+#threeCanvasContainer:active {
+    cursor: grabbing;
+}
+
+#threeCanvasContainer canvas {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Slide-over Drawer System */
+.drawer-backdrop {
+    transition: opacity 0.3s var(--ease-out-expo);
+}
+
+.drawer-panel {
+    transition: transform 0.35s var(--ease-out-expo);
+}
+
+/* Subtle scrollbars */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: var(--color-parchment);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--color-slate-border);
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-brass);
+}

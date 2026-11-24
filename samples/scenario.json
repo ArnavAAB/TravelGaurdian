@@ -1,0 +1,22 @@
+{
+  "_comment": "Simulated travel provider state. `tg simulate-delay` adds disruptions; `tg reset` restores this file.",
+  "now": "2026-12-03T05:30:00-08:00",
+  "disruptions": [],
+  "inventory": [
+    {"id": "alt-UA938", "airline": "United Airlines", "flight_number": "UA938", "origin": "ORD", "destination": "LHR",
+     "departs": "2026-12-03T18:00:00-06:00", "arrives": "2026-12-04T07:25:00+00:00", "seats_available": 2,
+     "protected": true, "fare_difference": 0, "currency": "USD", "notes": "Same carrier; free rebooking under irregular operations."},
+    {"id": "alt-UA926", "airline": "United Airlines", "flight_number": "UA926", "origin": "ORD", "destination": "LHR",
+     "departs": "2026-12-03T21:45:00-06:00", "arrives": "2026-12-04T11:40:00+00:00", "seats_available": 9,
+     "protected": true, "fare_difference": 0, "currency": "USD", "notes": "Same carrier; free rebooking."},
+    {"id": "alt-BA296", "airline": "British Airways", "flight_number": "BA296", "origin": "ORD", "destination": "LHR",
+     "departs": "2026-12-03T20:30:00-06:00", "arrives": "2026-12-04T10:05:00+00:00", "seats_available": 5,
+     "protected": false, "fare_difference": 1240, "currency": "USD", "notes": "Different alliance; new ticket required."},
+    {"id": "alt-UA901", "airline": "United Airlines", "flight_number": "UA901", "origin": "SFO", "destination": "LHR",
+     "departs": "2026-12-03T16:20:00-08:00", "arrives": "2026-12-04T10:35:00+00:00", "seats_available": 4,
+     "protected": true, "fare_difference": 0, "currency": "USD", "notes": "Nonstop from SFO; replaces both legs. Leaves 9h later than UA1542."},
+    {"id": "alt-UA1188", "airline": "United Airlines", "flight_number": "UA1188", "origin": "SFO", "destination": "ORD",
+     "departs": "2026-12-03T06:15:00-08:00", "arrives": "2026-12-03T12:25:00-06:00", "seats_available": 0,
+     "protected": true, "fare_difference": 0, "currency": "USD", "notes": "Sold out."}
+  ]
+}

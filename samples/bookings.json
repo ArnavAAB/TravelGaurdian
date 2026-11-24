@@ -1,0 +1,62 @@
+{
+  "traveler": "Maya Rao",
+  "home_city": "San Francisco",
+  "flights": [
+    {
+      "id": "seg-UA1542-20261203",
+      "confirmation": "K7Q2LM",
+      "airline": "United Airlines",
+      "flight_number": "UA1542",
+      "origin": "SFO",
+      "destination": "ORD",
+      "departs": "2026-12-03T07:00:00-08:00",
+      "arrives": "2026-12-03T13:15:00-06:00",
+      "passenger": "Maya Rao",
+      "cabin": "Economy",
+      "seat": "21C",
+      "source": "inbox/01-united-itinerary.eml"
+    },
+    {
+      "id": "seg-UA958-20261203",
+      "confirmation": "K7Q2LM",
+      "airline": "United Airlines",
+      "flight_number": "UA958",
+      "origin": "ORD",
+      "destination": "LHR",
+      "departs": "2026-12-03T15:50:00-06:00",
+      "arrives": "2026-12-04T06:05:00+00:00",
+      "passenger": "Maya Rao",
+      "cabin": "Economy",
+      "seat": "34A",
+      "source": "inbox/01-united-itinerary.eml"
+    },
+    {
+      "id": "seg-BA287-20261209",
+      "confirmation": "XH4P9T",
+      "airline": "British Airways",
+      "flight_number": "BA287",
+      "origin": "LHR",
+      "destination": "SFO",
+      "departs": "2026-12-09T14:10:00+00:00",
+      "arrives": "2026-12-09T17:05:00-08:00",
+      "passenger": "Maya Rao",
+      "cabin": "Premium Economy",
+      "seat": null,
+      "source": "inbox/02-ba-return.eml"
+    }
+  ],
+  "hotels": [
+    {
+      "id": "htl-KGH-20261204",
+      "confirmation": "KGH-558201",
+      "name": "Kingsway Grand Hotel",
+      "city": "London",
+      "address": "112 Kingsway, London WC2B 6AA",
+      "check_in": "2026-12-04",
+      "check_out": "2026-12-08",
+      "check_in_time": "15:00",
+      "guest": "Maya Rao",
+      "source": "inbox/03-hotel.eml"
+    }
+  ]
+}
